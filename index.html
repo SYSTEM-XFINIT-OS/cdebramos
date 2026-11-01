@@ -232,4 +232,249 @@ section:hover{
     border:1px solid var(--card-border);
     border-radius:12px;
     padding:20px 24px;
-    marg
+    margin-top:24px;
+    box-shadow: 0 2px 10px var(--shadow);
+    transition: background-color 0.35s, border-color 0.35s;
+    animation: fadeIn 0.8s ease both;
+}
+.links-box h2{
+    margin-top:0;
+}
+.links-box ul{
+    list-style:none;
+    padding-left:0;
+}
+.links-box li{
+    margin:8px 0;
+    transition: padding 0.3s;
+}
+.links-box li:hover{
+    padding-left:6px;
+}
+
+/* 视图切换 */
+.view{
+    display:none;
+    animation: fadeIn 0.4s ease both;
+}
+.view.active{
+    display:block;
+}
+.back-home-btn{
+    display:inline-block;
+    margin-bottom:20px;
+    padding:8px 16px;
+    border:2px solid var(--main-green);
+    border-radius:8px;
+    color:var(--main-green);
+    background:transparent;
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.3s;
+}
+.back-home-btn:hover{
+    background:var(--main-green);
+    color:#fff;
+    transform: translateX(-4px);
+}
+
+@media (max-width:600px){
+    body{
+        padding-top:80px;
+    }
+    .header-title{
+        font-size:1.05rem;
+    }
+    .icon-btn{
+        width:36px;
+        height:36px;
+    }
+}
+</style>
+
+<!--[if lte IE 9]>
+<style>
+*{margin:0;padding:0;}
+body{
+    background:#edf7ed;
+    color:#1a2e1a;
+    font-family:"Microsoft YaHei",SimSun;
+    padding-top:70px;
+    padding-left:20px;
+    padding-right:20px;
+    max-width:820px;
+    margin:0 auto;
+}
+.site-header{
+    position:absolute !important;
+    background:#ffffff;
+    border-bottom:1px solid #c8e9d2;
+    width:100%;
+    top:0;
+}
+.header-inner{
+    width:820px;
+    margin:0 auto;
+    padding:10px 20px;
+}
+.header-right{ display:none !important; }
+.icon-btn{ display:none !important; }
+h1{ font-size:26px; color:#1b7c38; }
+h2{ font-size:18px; color:#248c42; }
+section,.links-box{
+    background:#fff;
+    border:1px solid #c8e9d2;
+    padding:16px;
+    margin-bottom:16px;
+}
+.download-btn{
+    display:inline-block;
+    background:#248c42;
+    color:#fff;
+    padding:10px 22px;
+    text-decoration:none;
+}
+.download-btn-disabled{
+    background:#999;color:#eee;padding:10px 22px;
+}
+.back-home-btn{
+    border:2px solid #248c42;
+    padding:6px 12px;
+    background:#fff;
+    color:#248c42;
+}
+/* IE关闭所有动画 */
+*{animation:none !important;transition:none !important;}
+</style>
+<![endif]-->
+
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+<div class="header-inner">
+<div class="header-title" id="logoBtn">CDEB‑RAMOS</div>
+<div class="header-right">
+<button class="icon-btn" id="themeBtn" aria-label="切换主题">
+<svg class="sun-icon" viewBox="0 0 24 24">
+  <circle cx="12" cy="12" r="5"/>
+</svg>
+<svg class="moon-icon" viewBox="0 0 24 24">
+  <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/>
+</svg>
+</button>
+</div>
+</div>
+</header>
+
+<div id="top"></div>
+
+<div id="viewHome" class="view active">
+    <h1>CDEB‑RAMOS 项目</h1>
+    <section>
+        <h2>项目介绍</h2>
+        <ul>
+            <li>全部系统加载至内存运行，断电/重启后所有修改自动重置</li>
+            <li>暂时仅支持UEFI启动</li>
+        </ul>
+    </section>
+    <section>
+        <h2>下载区域</h2>
+        <p><a class="download-btn" href="#" id="goDownloadBtn">前往下载页面</a></p>
+    </section>
+    <section>
+        <h2>使用教程</h2>
+        <ol>
+            <li>下载本软件安装包并按照提示写入U盘，启动测试RAMOS</li>
+        </ol>
+    </section>
+    <section>
+        <h2>免责声明</h2>
+        <p>该镜像仅供研究和学习原理使用，请在72小时内删除文件</p>
+    </section>
+    <div class="links-box">
+        <h2>友情链接</h2>
+        <ul>
+            <li><a href="https://www.microsoft.com/zh-cn/software-download/windows11" target="_blank">微软 Windows11 官方镜像下载</a></li>
+            <li><a href="https://www.microsoft.com/zh-cn/software-download/windows10" target="_blank">微软 Windows10 官方镜像下载</a></li>
+            <li><a href="https://www.wepe.com.cn/" target="_blank">微PE工具箱</a></li>
+            <li><a href="https://www.uqitong.com/" target="_blank">优启通</a></li>
+        </ul>
+    </div>
+</div>
+
+<div id="viewDownload" class="view">
+    <h1>CDEB‑RAMOS - 下载页面</h1>
+    <section>
+        <h2>下载列表</h2>
+        <p><a class="download-btn" href="https://files.zohopublic.com.cn/public/workdrive-public/download/lgsgm05d6bbc3bd8b48848e0cece4db50ceb3?x-cli-msg=%7B%22linkId%22%3A%221vZ4257VYP5-3bs7I%22%2C%22isFileOwner%22%3Afalse%2C%22version%22%3A%221.0%22%2C%22isWDSupport%22%3Afalse%7D">Win10版本下载</a></p>
+        <br>
+        <p><span class="download-btn-disabled">Win11版本下载 (未开放)</span></p>
+    </section>
+    <p><button class="back-home-btn" id="backToHomeBtn">← 返回主页</button></p>
+</div>
+
+<script>
+function isOldIE(){
+    var ua=navigator.userAgent;
+    return (ua.indexOf("MSIE")>0) || (ua.indexOf("Trident/")>0 && ua.indexOf("rv:11")>0);
+}
+var oldIE = isOldIE();
+
+var viewHome = document.getElementById("viewHome");
+var viewDownload = document.getElementById("viewDownload");
+var goDownloadBtn = document.getElementById("goDownloadBtn");
+var backToHomeBtn = document.getElementById("backToHomeBtn");
+var logoBtn = document.getElementById("logoBtn");
+var header = document.getElementById("siteHeader");
+var themeBtn = document.getElementById("themeBtn");
+
+function showHome(){
+    viewHome.className="view active";
+    viewDownload.className="view";
+    window.scrollTo(0,0);
+}
+function showDownload(){
+    viewHome.className="view";
+    viewDownload.className="view active";
+    window.scrollTo(0,0);
+}
+
+goDownloadBtn.onclick=function(e){
+    e.preventDefault();
+    showDownload();
+};
+backToHomeBtn.onclick=function(){
+    showHome();
+};
+logoBtn.onclick=function(){
+    showHome();
+};
+
+if(oldIE){
+    themeBtn.style.display="none";
+}else{
+    var lastScrollY=window.scrollY;
+    window.addEventListener('scroll',function(){
+        var currentScrollY=window.scrollY;
+        if(currentScrollY>lastScrollY && currentScrollY>60){
+            header.classList.add('hide-up');
+        }else{
+            header.classList.remove('hide-up');
+        }
+        lastScrollY=currentScrollY<=0?0:currentScrollY;
+    },{passive:true});
+
+    themeBtn.addEventListener('click',function(){
+        document.body.classList.toggle('dark-mode');
+        localStorage.setItem('theme', document.body.classList.contains('dark-mode')?'dark':'light');
+    });
+
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }
+}
+</script>
+
+</body>
+</html>
