@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CDEB‑RAMOS 主页</title>
+
+<style>
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --bg-color:#edf7ed;
+    --text-color:#1a2e1a;
+    --card-bg:#ffffff;
+    --card-border:#c8e9d2;
+    --main-green:#248c42;
+    --dark-green:#1b7c38;
+    --link-color:#1f873c;
+    --hr-color:#b2ddbc;
+    --shadow:rgba(40,140,70,0.08);
+    --header-bg:rgba(255,255,255,0.92);
+    --header-border:#c8e9d2;
+}
+.dark-mode{
+    --bg-color:#121c14;
+    --text-color:#e2f5e4;
+    --card-bg:#1e2b21;
+    --card-border:#2f4b35;
+    --main-green:#49aa64;
+    --dark-green:#54bb70;
+    --link-color:#66d284;
+    --hr-color:#2f4b35;
+    --shadow:rgba(0,0,0,0.3);
+    --header-bg:rgba(18,28,20,0.92);
+    --header-border:#2f4b35;
+}
+
+/* 全局淡入 */
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(8px);}
+    to{opacity:1; transform:translateY(0);}
+}
+body{
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 90px 20px 48px;
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.75;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    transition: background-color 0.35s, color 0.35s;
+    animation: fadeIn 0.5s ease both;
+}
+
+/* 标题栏 */
+.site-header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:999;
+    background:var(--header-bg);
+    border-bottom:1px solid var(--header-border);
+    backdrop-filter: blur(10px);
+    box-shadow:0 2px 12px var(--shadow);
+    transition: transform 0.4s cubic-bezier(.4,.2,.2,1), background-color 0.35s, border-color 0.35s;
+}
+.site-header.hide-up{
+    transform: translateY(-100%);
+}
+.header-inner{
+    max-width:820px;
+    margin:0 auto;
+    padding:14px 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+}
+.header-title{
+    font-size:1.3rem;
+    font-weight:bold;
+    color:var(--dark-green);
+    letter-spacing:2px;
+    cursor:pointer;
+    transition: color 0.3s, transform 0.3s;
+}
+.header-title:hover{
+    text-decoration:underline;
+    transform: translateX(4px);
+}
+.header-right{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+/* 图标按钮 */
+.icon-btn{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    border:2px solid var(--main-green);
+    background:var(--card-bg);
+    color:var(--text-color);
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:0.3s;
+}
+.icon-btn:hover{
+    background:var(--main-green);
+    color:#fff;
+    transform: rotate(25deg) scale(1.08);
+}
+.icon-btn svg{
+    width:22px;
+    height:22px;
+    fill:none;
+    stroke:currentColor;
+    stroke-width:2;
+    transition: transform 0.4s;
+}
+
+/* 太阳月亮：浅色太阳，深色月亮 */
+.moon-icon{
+    display:none;
+}
+.dark-mode .moon-icon{
+    display:block;
+}
+.dark-mode .sun-icon{
+    display:none;
+}
+
+h1{
+    font-size: 2.3rem;
+    margin-bottom:28px;
+    color:var(--dark-green);
+    padding-bottom:10px;
+    border-bottom:3px solid var(--main-green);
+    animation: fadeIn 0.6s ease both;
+}
+h2{
+    font-size:1.45rem;
+    margin:30px 0 14px;
+    color:var(--main-green);
+    border-left:6px solid var(--main-green);
+    padding-left:12px;
+    animation: fadeIn 0.6s ease both;
+}
+ul,ol{
+    padding-left:26px;
+    margin-bottom:12px;
+}
+p{
+    margin-bottom:14px;
+}
+a{
+    color:var(--link-color);
+    text-decoration:none;
+    transition: color 0.3s;
+}
+a:hover{
+    color:var(--dark-green);
+    text-decoration:underline;
+}
+hr{
+    border:none;
+    height:2px;
+    background-color:var(--hr-color);
+    margin:32px 0;
+}
+
+/* 卡片 */
+section{
+    background:var(--card-bg);
+    border:1px solid var(--card-border);
+    border-radius:12px;
+    padding:20px 24px;
+    margin-bottom:20px;
+    box-shadow: 0 2px 10px var(--shadow);
+    transition: background-color 0.35s, border-color 0.35s, transform 0.35s;
+    animation: fadeIn 0.7s ease both;
+}
+section:hover{
+    transform: translateY(-3px);
+}
+
+/* 呼吸光下载按钮 */
+@keyframes breathe{
+    0%,100%{box-shadow:0 0 0 0 rgba(36,140,66,0.45);}
+    50%{box-shadow:0 0 0 10px rgba(36,140,66,0);}
+}
+.download-btn{
+    display:inline-block;
+    padding:12px 28px;
+    background-color:var(--main-green);
+    color:#ffffff;
+    border:2px solid var(--dark-green);
+    border-radius:8px;
+    font-weight:bold;
+    text-decoration:none;
+    letter-spacing:2px;
+    transition:0.3s;
+    animation: breathe 2.4s infinite;
+}
+.download-btn:hover{
+    background-color:var(--dark-green);
+    color:#ffffff;
+    text-decoration:none;
+    transform: translateY(-2px);
+}
+.download-btn-disabled{
+    display:inline-block;
+    padding:12px 28px;
+    background-color:#999999;
+    color:#eeeeee;
+    border:2px solid #777777;
+    border-radius:8px;
+    font-weight:bold;
+    letter-spacing:2px;
+    cursor:not-allowed;
+}
+
+.links-box{
+    background:var(--card-bg);
+    border:1px solid var(--card-border);
+    border-radius:12px;
+    padding:20px 24px;
+    marg
